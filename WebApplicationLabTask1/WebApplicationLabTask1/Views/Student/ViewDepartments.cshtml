@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "View Departments";
+}
+@model List<WebApplicationLabTask1.Models.Department>
+<h2>View Departments</h2>
+<br />
+<div class="container">
+    <table class="table table-condensed">
+        <tr>
+            <th>Department Id</th>
+            <th>Department Name</th>
+        </tr>
+        @foreach (var department in @Model)
+        {
+            <tr>
+                <td>@department.DeptId</td>
+                <td>@department.DeptName</td>
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+<br />
+<br />
+<div>
+    <a class="btn btn-info" href="/Student/Dashboard">Dashboard</a><br />
+</div>

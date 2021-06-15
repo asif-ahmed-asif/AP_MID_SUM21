@@ -7,9 +7,10 @@
 <div>
     <form action="/Student/Login" method="post">
         <input type="text" name="UserName" class="form-control" placeholder="User Name">
-        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })<br />
-        <input type="text" name="Password" class="form-control" placeholder="Password">
+        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })<br />
+        <input type="password" name="Password" class="form-control" placeholder="Password">
         @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })<br />
         <input type="submit" class="btn btn-block" value="Login" />
-    </form>
+    </form><br />
+    <p class="text-danger">@TempData["Failed"]</p>
 </div>

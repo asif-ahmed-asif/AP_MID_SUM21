@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Edit Students";
+}
+
+@model WebApplicationLabTask1.Models.Student
+
+<h2>Add Students</h2>
+<br />
+<div>
+    <form action="/Student/EditStudents" method="post">
+        <input type="hidden" name="Id" value="@Model.Id">
+        Name: <input type="text" name="Name" class="form-control" value="@Model.Name">
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })<br />
+        DOB: <input type="date" name="DOB" class="form-control" value="@Model.DOB.ToString("yyyy-MM-dd")">
+        @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })<br />
+        Credit: <input type="text" name="Credit" class="form-control" value="@Model.Credit">
+        @Html.ValidationMessageFor(model => model.Credit, "", new { @class = "text-danger" })<br />
+        CGPA: <input type="text" name="CGPA" class="form-control" value="@Model.CGPA">
+        @Html.ValidationMessageFor(model => model.CGPA, "", new { @class = "text-danger" })<br />
+        Department: 
+        <select class="form-control" name="DeptId">
+            <option></option>
+            <option value="dp-1" @if (Model.DeptId == "dp-1") {
+                @:selected 
+                    }>CSE</option>
+            <option value="dp-2" @if (Model.DeptId == "dp-2") {
+                @:selected 
+                    }>BBA</option>
+            <option value="dp-3" @if (Model.DeptId == "dp-3") {
+                @:selected 
+                    }>EEE</option>
+            <option value="dp-4" @if (Model.DeptId == "dp-4") {
+                @:selected 
+                    }>English</option>
+        </select>
+        @Html.ValidationMessageFor(model => model.DeptId, "", new { @class = "text-danger" })<br />
+        <input type="submit" class="btn btn-success" value="Edit Sudent" />
+    </form>
+</div>
+<br />
+<br />
+<br />
+<div>
+    <a class="btn btn-info" href="/Student/Dashboard">Dashboard</a><br />
+</div>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplicationLabTask1.Models;
+using WebApplicationLabTask1.Models.Database;
 
 namespace WebApplicationLabTask1.Controllers
 {
@@ -18,22 +19,80 @@ namespace WebApplicationLabTask1.Controllers
         [HttpPost]
         public ActionResult Login(Login l)
         {
-            
-            return View(l);
+            if (ModelState.IsValid)
+            {
+                Database db = new Database();
+                var login = db.Logins.ValidateLogin(l);
+                if(login != null)
+                {
+                    TempData["Name"] = login.Name;
+                    return RedirectToAction("Dashboard");
+                }
+                TempData["Failed"] = "Login Failed! Invalid User Name or Password";
+                return View();
+                
+            }
+            return View();
         }
 
-        public ActionResult About()
+        public ActionResult Dashboard()
         {
-            ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult ViewStudents()
         {
-            ViewBag.Message = "Your contact page.";
+            Database db = new Database();
+            var students = db.Students.GetAll();
+            return View(students);
+        }
 
+        public ActionResult AddStudents()
+        {
+            Student s = new Student();
+            return View(s);
+        }
+
+        [HttpPost]
+        public ActionResult AddStudents(Student s)
+        {
+            if (ModelState.IsValid)
+            {
+                Database db = new Database();
+                db.Students.Insert(s);
+                return RedirectToAction("ViewStudents");
+            }
             return View();
+        }
+
+        public ActionResult ViewDepartments()
+        {
+            Database db = new Database();
+            var departments = db.Departments.GetAll();
+            return View(departments);
+        }
+
+        public ActionResult EditStudents(int id)
+        {
+            Database db = new Database();
+            var student = db.Students.Get(id);
+            return View(student);
+        }
+
+        [HttpPost]
+        public ActionResult EditStudents(Student s)
+        {
+            Database db = new Database();
+            db.Students.Update(s);
+            return RedirectToAction("ViewStudents");
+        }
+
+        public ActionResult DeleteStudent(int id)
+        {
+            Database db = new Database();
+            db.Students.Delete(id);
+            return RedirectToAction("ViewStudents");
         }
     }
 }

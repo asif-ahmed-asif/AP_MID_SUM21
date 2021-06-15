@@ -14,12 +14,14 @@ namespace WebApplicationLabTask1.Models.Database
 
         public Database()
         {
-            string connString = @"Server=DESKTOP-1HKAK02;Database=PMS;Integrated Security=true;";
+            string connString = @"Data Source=DESKTOP-CLHA1Q5\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
             SqlConnection conn = new SqlConnection(connString);
 
-            Products = new Products(conn);
-            Categories = new Categories(conn);
+            Logins = new Logins(conn);
+            Departments = new Departments(conn);
+            Students = new Students(conn);
 
         }
     }
+    
 }

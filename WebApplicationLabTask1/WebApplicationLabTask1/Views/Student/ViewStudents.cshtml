@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "View Students";
+}
+@model List<WebApplicationLabTask1.Models.Student>
+<h2>View Students</h2>
+<br />
+<div class="container">
+    <table class="table table-condensed">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>DOB</th>
+            <th>Credit</th>
+            <th>CGPA</th>
+            <th>Department Name</th>
+            <th></th>
+            <th></th>
+        </tr>
+        @foreach (var student in @Model)
+        {
+            <tr>
+                <td>@student.Id</td>
+                <td>@student.Name</td>
+                <td>@student.DOB.ToString("dd/MM/yyyy")</td>
+                <td>@student.Credit</td>
+                <td>@student.CGPA</td>
+                <td>@student.DeptName</td>
+                <td><a class="btn btn-success" href="/Student/EditStudents/@student.Id">Edit</a></td>
+                <td><a class="btn btn-danger" href="/Student/DeleteStudent/@student.Id">Delete</a></td>
+            </tr>
+        }
+
+    </table>
+</div>
+<br />
+<br />
+<br />
+<div>
+    <a class="btn btn-info" href="/Student/Dashboard">Dashboard</a><br />
+</div>

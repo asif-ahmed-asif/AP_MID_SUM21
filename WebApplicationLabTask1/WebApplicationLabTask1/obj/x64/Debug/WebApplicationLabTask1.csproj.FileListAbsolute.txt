@@ -1,0 +1,2 @@
+E:\Codes\ASP.NET\Lab Tasks\WebApplicationLabTask1\WebApplicationLabTask1\obj\x64\Debug\WebApplicationLabTask1.csproj.AssemblyReference.cache
+E:\Codes\ASP.NET\Lab Tasks\WebApplicationLabTask1\WebApplicationLabTask1\obj\x64\Debug\WebApplicationLabTask1.csproj.CoreCompileInputs.cache
