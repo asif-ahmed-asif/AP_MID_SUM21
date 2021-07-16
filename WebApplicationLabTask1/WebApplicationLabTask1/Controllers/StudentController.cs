@@ -83,9 +83,14 @@ namespace WebApplicationLabTask1.Controllers
         [HttpPost]
         public ActionResult EditStudents(Student s)
         {
-            Database db = new Database();
-            db.Students.Update(s);
-            return RedirectToAction("ViewStudents");
+            if (ModelState.IsValid)
+            {
+                Database db = new Database();
+                db.Students.Update(s);
+                return RedirectToAction("ViewStudents");
+            }
+            return View(s);
+           
         }
 
         public ActionResult DeleteStudent(int id)

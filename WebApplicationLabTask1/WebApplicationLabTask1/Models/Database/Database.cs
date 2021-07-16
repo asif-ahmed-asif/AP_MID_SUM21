@@ -14,7 +14,7 @@ namespace WebApplicationLabTask1.Models.Database
 
         public Database()
         {
-            string connString = @"Data Source=DESKTOP-CLHA1Q5\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
+            string connString = @"Data Source=ANONYMOUS\SQLEXPRESS;Initial Catalog=student;Integrated Security=True";
             SqlConnection conn = new SqlConnection(connString);
 
             Logins = new Logins(conn);
