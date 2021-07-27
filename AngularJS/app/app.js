@@ -19,23 +19,23 @@ app.config(["$routeProvider","$locationProvider",function($routeProvider,$locati
     })
     .when("/page1", {
         templateUrl : "views/pages/page1.html",
-        controller: 'products'
+        controller: 'practise'
     })
     .when("/page2", {
         templateUrl : "views/pages/page2.html",
-        controller: 'products'
+        controller: 'practise'
     })
     .when("/page3", {
         templateUrl : "views/pages/page3.html",
-        controller: 'products'
+        controller: 'practise'
     })
     .when("/page4", {
         templateUrl : "views/pages/page4.html",
-        controller: 'products'
+        controller: 'practise'
     })
     .when("/page5", {
         templateUrl : "views/pages/page5.html",
-        controller: 'products'
+        controller: 'practise'
     })
     .otherwise({
         redirectTo:"/"
